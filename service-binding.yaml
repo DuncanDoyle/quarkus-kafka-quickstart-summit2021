@@ -1,0 +1,17 @@
+apiVersion: binding.operators.coreos.com/v1alpha1
+kind: ServiceBinding
+metadata:
+  name: kafka-binding
+  namespace: quarkus-rhosak
+spec:
+  application:
+    group: apps
+    name: kafka-quickstart
+    resource: deployments
+    version: v1
+  bindAsFiles: true
+  services:
+    - group: rhoas.redhat.com
+      version: v1alpha1
+      kind: KafkaConnection
+      name: my-first-openshift-streams
